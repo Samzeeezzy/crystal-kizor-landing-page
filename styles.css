@@ -1279,5 +1279,54 @@ button:focus-visible {
   .reveal {
     opacity: 1;
     transform: none;
+  }/* =========================
+   HERO REFINEMENT
+========================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.secondary-link {
+  color: var(--muted);
+}
+
+.secondary-link:hover {
+  color: var(--ink);
+}
+
+.image-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-caption span {
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .65;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+  .hero-actions {
+    gap: 22px;
+    margin-top: 28px;
   }
+
+  .image-caption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+}
 }
