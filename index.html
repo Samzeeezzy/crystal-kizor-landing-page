@@ -16,6 +16,87 @@
   >
 
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .portrait-feature {
+      padding-top: 8vw;
+      padding-bottom: 8vw;
+    }
+
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+      margin-top: 5vw;
+      align-items: start;
+    }
+
+    .portrait-grid figure,
+    .studio-image {
+      margin: 0;
+    }
+
+    .portrait-grid img,
+    .studio-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .portrait-main img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .portrait-side {
+      padding-top: 8vw;
+    }
+
+    .portrait-side img {
+      aspect-ratio: 3 / 4;
+    }
+
+    .portrait-grid figcaption {
+      margin-top: 12px;
+      font-size: 11px;
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted, #716a61);
+    }
+
+    .studio-image {
+      margin-top: 24px;
+    }
+
+    .studio-image img {
+      max-height: 720px;
+      object-position: center;
+    }
+
+    @media (max-width: 800px) {
+      .portrait-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .portrait-side {
+        padding-top: 0;
+        max-width: 80%;
+        margin-left: auto;
+      }
+
+      .studio-image {
+        margin-top: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portrait-side {
+        max-width: 100%;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -34,25 +115,15 @@
 
   <nav
     class="site-nav"
+    id="primary-navigation"
     aria-label="Primary navigation"
   >
     <a href="#about">About</a>
     <a href="#ecosystem">Work</a>
     <a href="#nature-home">Nature Home</a>
+    <a href="#crystal-studio">Studio</a>
     <a href="#pathways">Connect</a>
   </nav>
-
-  <button
-    class="menu-toggle"
-    type="button"
-    aria-label="Open navigation menu"
-    aria-expanded="false"
-  >
-    <span class="menu-label">Menu</span>
-    <span class="menu-icon">+</span>
-  </button>
-
-</header>
 
   <button
     class="menu-toggle"
@@ -66,55 +137,53 @@
   </button>
 
 </header>
-  </header>
-  
+
   <main id="top">
 
   <!-- HERO -->
-<section class="hero">
-  <div class="hero-copy reveal">
+  <section class="hero">
+    <div class="hero-copy reveal">
 
-    <p class="eyebrow">CRYSTAL KIZOR</p>
+      <p class="eyebrow">CRYSTAL KIZOR</p>
 
-    <h1>
-      Designing for<br>
-      <em>people, place</em><br>
-      &amp; possibility.
-    </h1>
+      <h1>
+        Designing for<br>
+        <em>people, place</em><br>
+        &amp; possibility.
+      </h1>
 
-    <p class="hero-intro">
-      Architect · Designer · Entrepreneur · Researcher · Speaker
-    </p>
-<img
-  src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/8.jpeg"
-  alt="Nature Home in Enugu, Nigeria"
-  loading="eager"
->
-    <p class="hero-description">
-      Creating climate-responsive spaces, developing ideas, and building
-      platforms that help people and places thrive.
-    </p>
+      <p class="hero-intro">
+        Architect · Designer · Entrepreneur · Researcher · Speaker
+      </p>
 
-    <div class="hero-actions">
-      <a class="text-link" href="#ecosystem">
-        Explore the work <span>↘</span>
-      </a>
+      <p class="hero-description">
+        Creating climate-responsive spaces, developing ideas, and building
+        platforms that help people and places thrive.
+      </p>
 
-      <a class="text-link secondary-link" href="#about">
-        Discover Crystal <span>↘</span>
-      </a>
+      <div class="hero-actions">
+        <a class="text-link" href="#ecosystem">
+          Explore the work <span>↘</span>
+        </a>
+
+        <a class="text-link secondary-link" href="#about">
+          Discover Crystal <span>↘</span>
+        </a>
+      </div>
+
     </div>
 
-  </div>
+    <div class="hero-image reveal">
+      <img
+        src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/8.jpeg"
+        alt="Nature Home in Enugu, Nigeria"
+        loading="eager"
+      >
+    </div>
+  </section>
 
 
-  </div>
-
-
-    </section>
-
-
-    <!-- ABOUT / POSITION -->
+  <!-- ABOUT / POSITION -->
     <section class="statement section reveal" id="about">
 
       <p class="section-index">
@@ -332,7 +401,7 @@
       <div class="nature-feature reveal">
 
         <img
-          src="assets/nature-home/2.jpeg"
+          src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/2.jpeg"
           alt="Nature Home exterior"
           loading="lazy"
         >
@@ -345,28 +414,28 @@
 
         <img
           class="reveal"
-          src="assets/nature-home/7.jpeg"
+          src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/7.jpeg"
           alt="Nature Home architecture"
           loading="lazy"
         >
 
         <img
           class="reveal"
-          src="assets/nature-home/3.jpeg"
+          src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/3.jpeg"
           alt="Nature Home interior"
           loading="lazy"
         >
 
         <img
           class="reveal"
-          src="assets/nature-home/4.jpeg"
+          src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/4.jpeg"
           alt="Nature Home detail"
           loading="lazy"
         >
 
         <img
           class="reveal"
-          src="assets/nature-home/6.jpeg"
+          src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/6.jpeg"
           alt="Nature Home view"
           loading="lazy"
         >
@@ -397,11 +466,56 @@
     </section>
 
 
+    <!-- CRYSTAL KIZOR / STUDIO PORTRAITS -->
+    <section class="portrait-feature section" id="crystal-studio">
+
+      <div class="section-heading reveal">
+        <p class="section-index">04 / THE STUDIO</p>
+
+        <h2>
+          The person<br>
+          <em>behind the work.</em>
+        </h2>
+      </div>
+
+      <div class="portrait-grid">
+
+        <figure class="portrait-main reveal">
+          <img
+            src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/Architectural%20Designer%20in%20Her%20Studio.png"
+            alt="Crystal Kizor working in her architectural studio"
+            loading="lazy"
+          >
+          <figcaption>Designing, researching and creating in the studio.</figcaption>
+        </figure>
+
+        <figure class="portrait-side reveal">
+          <img
+            src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/Architectural%20Studio%20Portrait.png"
+            alt="Crystal Kizor studio portrait"
+            loading="lazy"
+          >
+          <figcaption>Architecture, ideas and a practice rooted in place.</figcaption>
+        </figure>
+
+      </div>
+
+      <div class="studio-image reveal">
+        <img
+          src="https://raw.githubusercontent.com/Samzeeezzy/crystal-kizor-portfolio/main/1.png"
+          alt="Crystal Kizor architecture and design work"
+          loading="lazy"
+        >
+      </div>
+
+    </section>
+
+
     <!-- THINKING -->
     <section class="manifesto section reveal" id="thinking">
 
       <p class="section-index">
-        04 / THE THINKING
+        05 / THE THINKING
       </p>
 
       <div class="manifesto-text">
@@ -429,7 +543,7 @@
       <div class="section-heading reveal">
 
         <p class="section-index">
-          05 / YOUR NEXT STEP
+          06 / YOUR NEXT STEP
         </p>
 
         <h2>
@@ -488,13 +602,6 @@
 
     <!-- CONTACT / CLOSING -->
     <section class="closing section reveal" id="contact">
-
-      <img
-        class="monogram"
-        src="assets/crystal-kizor-monogram.png"
-        alt=""
-        aria-hidden="true"
-      >
 
       <p class="closing-name">
         CRYSTAL KIZOR
