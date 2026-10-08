@@ -1,27 +1,67 @@
 const menu = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".site-nav");
 
+/* =========================
+   MOBILE MENU
+========================= */
+
 menu?.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
+  const open = nav?.classList.toggle("open");
+
   menu.setAttribute("aria-expanded", String(open));
-  menu.querySelector("span").textContent = open ? "×" : "+";
+
+  const icon = menu.querySelector("span");
+
+  if (icon) {
+    icon.textContent = open ? "×" : "+";
+  }
 });
+
+/* Close menu after clicking a navigation link */
 
 document.querySelectorAll(".site-nav a").forEach(link => {
   link.addEventListener("click", () => {
-    nav.classList.remove("open");
+
+    nav?.classList.remove("open");
+
     menu?.setAttribute("aria-expanded", "false");
-    if (menu) menu.querySelector("span").textContent = "+";
+
+    const icon = menu?.querySelector("span");
+
+    if (icon) {
+      icon.textContent = "+";
+    }
+
   });
 });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer = new IntersectionObserver(
+  (entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add("visible");
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  },
+  {
+    threshold: 0.12
+  }
+);
+
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
