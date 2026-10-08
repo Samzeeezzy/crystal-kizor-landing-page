@@ -1,4 +1,3 @@
-```css
 :root {
   --paper: #f4f0e8;
   --ink: #1d1915;
@@ -39,10 +38,10 @@ button {
   font: inherit;
 }
 
-.serif,
 h1,
 h2,
-h3 {
+h3,
+.serif {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
 }
@@ -60,9 +59,9 @@ h3 {
   transform: translateY(0);
 }
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 .site-header {
   position: fixed;
@@ -92,8 +91,6 @@ h3 {
   opacity: .55;
 }
 
-/* LOGO */
-
 .brand {
   display: inline-flex;
   align-items: center;
@@ -119,11 +116,11 @@ h3 {
 
 .site-nav a {
   position: relative;
+  padding: 8px 0;
   font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .14em;
-  padding: 8px 0;
   transition: opacity .3s ease;
 }
 
@@ -139,7 +136,7 @@ h3 {
 }
 
 .site-nav a:hover {
-  opacity: .65;
+  opacity: .6;
 }
 
 .site-nav a:hover::after {
@@ -171,65 +168,61 @@ h3 {
   transition: transform .3s ease;
 }
 
-/* =========================
-   MOBILE HEADER
-========================= */
+/* =====================================================
+   GLOBAL
+===================================================== */
 
-@media (max-width: 800px) {
-
-  .site-header {
-    padding: 19px 5vw;
-  }
-
-  .site-header::after {
-    left: 5vw;
-    right: 5vw;
-  }
-
-  .site-header img {
-    width: 125px;
-  }
-
-  .site-nav {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .site-nav.open {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
-    padding: 120px 8vw 60px;
-    background: var(--paper);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 28px;
-    z-index: 90;
-  }
-
-  .site-nav.open a {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(34px, 9vw, 58px);
-    font-weight: 400;
-    letter-spacing: -.035em;
-    text-transform: none;
-    padding: 0;
-  }
-
-  .site-nav.open a::after {
-    display: none;
-  }
-
+.section {
+  position: relative;
 }
-/* =========================
+
+.section-index {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 38px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  transition:
+    opacity .3s ease,
+    gap .3s ease;
+}
+
+.text-link:hover {
+  opacity: .5;
+  gap: 20px;
+}
+
+.text-link span {
+  display: inline-block;
+  transition: transform .35s ease;
+}
+
+.text-link:hover span {
+  transform: translate(5px, -5px);
+}
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
   min-height: 100svh;
@@ -240,8 +233,6 @@ h3 {
   align-items: center;
   position: relative;
 }
-
-/* LEFT CONTENT */
 
 .hero-copy {
   max-width: 690px;
@@ -269,7 +260,6 @@ h3 {
 
 .hero h1 {
   margin: 30px 0 35px;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(64px, 7.5vw, 132px);
   line-height: .83;
   letter-spacing: -.07em;
@@ -299,28 +289,17 @@ h3 {
   line-height: 1.75;
 }
 
-/* HERO LINK */
-
 .hero .text-link {
   margin-top: 42px;
 }
 
-.text-link span {
-  display: inline-block;
-  transition: transform .35s ease;
-}
-
-.text-link:hover span {
-  transform: translate(5px, -5px);
-}
-
-/* RIGHT IMAGE */
+/* HERO IMAGE */
 
 .hero-image {
   position: relative;
-  overflow: hidden;
   height: min(78vh, 820px);
   min-height: 580px;
+  overflow: hidden;
 }
 
 .hero-image::after {
@@ -330,8 +309,8 @@ h3 {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0) 70%,
-    rgba(0,0,0,.12)
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, .15)
   );
 }
 
@@ -341,16 +320,12 @@ h3 {
   min-height: 0;
   object-fit: cover;
   object-position: center;
-  transition:
-    transform 1.4s cubic-bezier(.2,.65,.25,1),
-    filter 1s ease;
+  transition: transform 1.4s cubic-bezier(.2, .65, .25, 1);
 }
 
 .hero-image:hover img {
   transform: scale(1.035);
 }
-
-/* IMAGE CAPTION */
 
 .image-caption {
   position: absolute;
@@ -363,149 +338,87 @@ h3 {
   line-height: 1.4;
   letter-spacing: .14em;
   text-transform: uppercase;
-  text-shadow: 0 1px 8px rgba(0,0,0,.25);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .25);
 }
 
-/* =========================
-   HERO — LARGE DESKTOP
-========================= */
+/* =====================================================
+   POSITION
+===================================================== */
 
-@media (min-width: 1400px) {
-
-  .hero {
-    padding-left: 5vw;
-    padding-right: 5vw;
-    gap: 7vw;
-  }
-
-  .hero h1 {
-    font-size: clamp(90px, 7.2vw, 145px);
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
+.statement {
+  padding: 12vw 8vw 13vw;
+  border-top: 1px solid var(--line);
+  position: relative;
 }
 
-/* =========================
-   HERO — TABLET
-========================= */
-
-@media (max-width: 1000px) and (min-width: 801px) {
-
-  .hero {
-    grid-template-columns: .9fr 1.1fr;
-    gap: 4vw;
-    padding-top: 110px;
-  }
-
-  .hero h1 {
-    font-size: clamp(55px, 7vw, 90px);
-  }
-
-  .hero-image {
-    height: 68vh;
-    min-height: 500px;
-  }
-
+.statement > .section-index {
+  position: absolute;
+  top: 34px;
+  left: 8vw;
 }
 
-/* =========================
-   HERO — MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-  .hero {
-    min-height: auto;
-    padding: 125px 5vw 65px;
-    display: block;
-  }
-
-  .hero-copy {
-    padding-bottom: 0;
-  }
-
-  .hero-copy .eyebrow {
-    font-size: 8px;
-  }
-
-  .hero-copy .eyebrow::before {
-    width: 24px;
-  }
-
-  .hero h1 {
-    margin: 22px 0 30px;
-    font-size: clamp(58px, 16vw, 94px);
-    line-height: .84;
-    letter-spacing: -.07em;
-  }
-
-  .hero-intro {
-    max-width: 390px;
-    font-size: 10px;
-    line-height: 1.65;
-    letter-spacing: .07em;
-  }
-
-  .hero-description {
-    max-width: 390px;
-    margin-top: 18px;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .hero .text-link {
-    margin-top: 32px;
-  }
-
-  .hero-image {
-    height: 68vh;
-    min-height: 420px;
-    margin-top: 58px;
-  }
-
-  .image-caption {
-    left: 14px;
-    bottom: 13px;
-    font-size: 8px;
-  }
-
+.statement-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  gap: 9vw;
+  align-items: start;
 }
 
-/* =========================
-   HERO — SMALL PHONES
-========================= */
-
-@media (max-width: 480px) {
-
-  .hero {
-    padding-top: 115px;
-  }
-
-  .hero h1 {
-    font-size: 17.5vw;
-  }
-
-  .hero-intro {
-    font-size: 9px;
-  }
-
-  .hero-description {
-    font-size: 13px;
-  }
-
-  .hero-image {
-    height: 62vh;
-    min-height: 370px;
-    margin-top: 50px;
-  }
-
+.statement h2 {
+  margin: 0;
+  font-size: clamp(58px, 7.2vw, 112px);
+  line-height: .86;
+  letter-spacing: -.065em;
+  font-weight: 400;
 }
-/* =========================
+
+.statement h2 em {
+  font-style: italic;
+}
+
+.statement .body-copy {
+  max-width: 470px;
+  padding-top: 12px;
+}
+
+.statement .body-copy::before {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 1px;
+  margin-bottom: 28px;
+  background: var(--ink);
+}
+
+.statement .body-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.statement .body-copy p:first-child {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+.statement .body-copy p + p {
+  margin-top: 25px;
+}
+
+.statement .body-copy strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* =====================================================
    ECOSYSTEM
-========================= */
+===================================================== */
 
 .ecosystem {
   padding: 9vw 4vw 12vw;
@@ -543,11 +456,11 @@ h3 {
 
 .group-label {
   margin-bottom: 35px;
+  color: var(--muted);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
 .work-row {
@@ -599,9 +512,9 @@ h3 {
   transform: translate(5px, -5px);
 }
 
-/* =========================
+/* =====================================================
    NATURE HOME
-========================= */
+===================================================== */
 
 .nature {
   padding: 10vw 4vw;
@@ -629,10 +542,10 @@ h3 {
 
 .project-meta {
   margin: 0;
+  color: var(--muted);
   font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
 .nature-intro .body-copy {
@@ -645,6 +558,7 @@ h3 {
 }
 
 .nature-feature img {
+  width: 100%;
   max-height: 78vh;
   object-fit: cover;
   transition: transform 1s ease;
@@ -654,6 +568,8 @@ h3 {
   transform: scale(1.02);
 }
 
+/* PROJECT GALLERY */
+
 .nature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -662,9 +578,17 @@ h3 {
 }
 
 .nature-grid img {
+  width: 100%;
   height: 30vw;
   object-fit: cover;
+  transition: transform .8s cubic-bezier(.2, .65, .25, 1);
 }
+
+.nature-grid img:hover {
+  transform: scale(1.015);
+}
+
+/* PRINCIPLES */
 
 .principles {
   display: grid;
@@ -680,9 +604,9 @@ h3 {
 
 .principles strong {
   display: block;
+  margin-bottom: 14px;
   font-size: 10px;
   letter-spacing: .15em;
-  margin-bottom: 14px;
 }
 
 .principles span {
@@ -692,9 +616,9 @@ h3 {
   line-height: 1.6;
 }
 
-/* =========================
+/* =====================================================
    THINKING
-========================= */
+===================================================== */
 
 .manifesto {
   padding: 13vw 8vw;
@@ -724,14 +648,14 @@ h3 {
   margin-left: auto;
   padding-top: 22px;
   border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
-  color: var(--muted);
 }
 
-/* =========================
+/* =====================================================
    PATHWAYS
-========================= */
+===================================================== */
 
 .pathways {
   padding: 10vw 4vw 12vw;
@@ -745,8 +669,8 @@ h3 {
 .path {
   display: grid;
   grid-template-columns: 80px 1fr 40px;
-  align-items: center;
   gap: 25px;
+  align-items: center;
   padding: 25px 0;
   border-bottom: 1px solid var(--line);
   transition:
@@ -760,9 +684,9 @@ h3 {
 }
 
 .path > span:first-child {
+  color: var(--muted);
   font-size: 10px;
   letter-spacing: .12em;
-  color: var(--muted);
 }
 
 .path strong {
@@ -782,9 +706,9 @@ h3 {
   transform: translate(5px, -5px);
 }
 
-/* =========================
-   CONTACT / CLOSING
-========================= */
+/* =====================================================
+   CLOSING
+===================================================== */
 
 .closing {
   padding: 13vw 4vw 7vw;
@@ -822,9 +746,9 @@ h3 {
   letter-spacing: .14em;
 }
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer {
   padding: 25px 4vw;
@@ -837,9 +761,9 @@ h3 {
   color: var(--muted);
 }
 
-/* =========================
-   FOCUS / ACCESSIBILITY
-========================= */
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
 
 a:focus-visible,
 button:focus-visible {
@@ -847,14 +771,98 @@ button:focus-visible {
   outline-offset: 5px;
 }
 
-/* =========================
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (min-width: 1400px) {
+
+  .hero {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    gap: 7vw;
+  }
+
+  .hero h1 {
+    font-size: clamp(90px, 7.2vw, 145px);
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .statement {
+    padding-top: 11vw;
+    padding-bottom: 14vw;
+  }
+
+  .statement-grid {
+    max-width: 1250px;
+  }
+
+  .statement h2 {
+    font-size: clamp(90px, 7vw, 125px);
+  }
+
+  .statement .body-copy {
+    padding-top: 20px;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) and (min-width: 801px) {
+
+  .hero {
+    grid-template-columns: .9fr 1.1fr;
+    gap: 4vw;
+    padding-top: 110px;
+  }
+
+  .hero h1 {
+    font-size: clamp(55px, 7vw, 90px);
+  }
+
+  .hero-image {
+    height: 68vh;
+    min-height: 500px;
+  }
+
+  .statement {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .statement > .section-index {
+    left: 6vw;
+  }
+
+  .statement-grid {
+    gap: 6vw;
+  }
+
+  .statement h2 {
+    font-size: clamp(52px, 7vw, 82px);
+  }
+}
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 800px) {
 
+  /* HEADER */
+
   .site-header {
-    padding: 18px 5vw;
+    padding: 19px 5vw;
+  }
+
+  .site-header::after {
+    left: 5vw;
+    right: 5vw;
   }
 
   .site-header img {
@@ -867,40 +875,103 @@ button:focus-visible {
 
   .menu-toggle {
     display: block;
-    padding: 5px;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .12em;
   }
+
+  /* MOBILE NAV */
+
+  .site-nav.open {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 120px 8vw 60px;
+    background: var(--paper);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 28px;
+    z-index: 90;
+  }
+
+  .site-nav.open a {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 9vw, 58px);
+    font-weight: 400;
+    letter-spacing: -.035em;
+    text-transform: none;
+    padding: 0;
+  }
+
+  .site-nav.open a::after {
+    display: none;
+  }
+
+  /* HERO */
 
   .hero {
     min-height: auto;
-    padding: 125px 5vw 60px;
+    padding: 125px 5vw 65px;
     display: block;
   }
 
+  .hero-copy {
+    padding-bottom: 0;
+  }
+
+  .hero-copy .eyebrow {
+    font-size: 8px;
+  }
+
+  .hero-copy .eyebrow::before {
+    width: 24px;
+  }
+
   .hero h1 {
-    font-size: clamp(55px, 16vw, 90px);
-    margin: 20px 0 30px;
+    margin: 22px 0 30px;
+    font-size: clamp(58px, 16vw, 94px);
+    line-height: .84;
+  }
+
+  .hero-intro {
+    max-width: 390px;
+    font-size: 10px;
+    line-height: 1.65;
+    letter-spacing: .07em;
   }
 
   .hero-description {
+    max-width: 390px;
+    margin-top: 18px;
     font-size: 14px;
     line-height: 1.7;
-    margin-top: 18px;
+  }
+
+  .hero .text-link {
+    margin-top: 32px;
   }
 
   .hero-image {
-    margin-top: 55px;
+    height: 68vh;
+    min-height: 420px;
+    margin-top: 58px;
   }
 
-  .hero-image img {
-    height: 70vh;
-    min-height: 420px;
+  .image-caption {
+    left: 14px;
+    bottom: 13px;
+    font-size: 8px;
   }
+
+  /* POSITION */
 
   .statement {
-    padding: 90px 5vw;
+    padding: 105px 5vw 100px;
+  }
+
+  .statement > .section-index {
+    position: static;
+    margin-bottom: 55px;
   }
 
   .statement-grid {
@@ -908,17 +979,31 @@ button:focus-visible {
   }
 
   .statement h2 {
-    font-size: clamp(52px, 15vw, 85px);
-    margin-bottom: 45px;
+    font-size: clamp(55px, 15vw, 88px);
+    line-height: .87;
+    margin-bottom: 55px;
   }
 
   .statement .body-copy {
+    max-width: 100%;
     padding-top: 0;
   }
 
-  .statement .body-copy p {
-    font-size: 16px;
+  .statement .body-copy::before {
+    margin-bottom: 25px;
   }
+
+  .statement .body-copy p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .statement .body-copy p:first-child {
+    font-size: 21px;
+    line-height: 1.35;
+  }
+
+  /* ECOSYSTEM */
 
   .ecosystem {
     padding: 80px 5vw 100px;
@@ -955,6 +1040,8 @@ button:focus-visible {
   .work-row small {
     font-size: 8px;
   }
+
+  /* NATURE HOME */
 
   .nature {
     padding: 80px 5vw;
@@ -997,6 +1084,8 @@ button:focus-visible {
     margin-top: 55px;
   }
 
+  /* THINKING */
+
   .manifesto {
     padding: 90px 5vw;
   }
@@ -1010,6 +1099,8 @@ button:focus-visible {
     margin-left: 0;
     font-size: 16px;
   }
+
+  /* PATHWAYS */
 
   .pathways {
     padding: 80px 5vw 100px;
@@ -1029,6 +1120,8 @@ button:focus-visible {
     font-size: 25px;
   }
 
+  /* CLOSING */
+
   .closing {
     padding: 100px 5vw 60px;
   }
@@ -1037,6 +1130,8 @@ button:focus-visible {
     font-size: clamp(65px, 20vw, 115px);
   }
 
+  /* FOOTER */
+
   .footer {
     padding: 20px 5vw;
     display: block;
@@ -1044,19 +1139,45 @@ button:focus-visible {
   }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* =====================================================
+   SMALL PHONES
+===================================================== */
 
 @media (max-width: 480px) {
 
-  .hero h1 {
-    font-size: 18vw;
+  .hero {
+    padding-top: 115px;
   }
 
-  .hero-image img {
-    min-height: 360px;
+  .hero h1 {
+    font-size: 17.5vw;
+  }
+
+  .hero-intro {
+    font-size: 9px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-image {
     height: 62vh;
+    min-height: 370px;
+    margin-top: 50px;
+  }
+
+  .statement {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .statement > .section-index {
+    margin-bottom: 45px;
+  }
+
+  .statement h2 {
+    font-size: 16vw;
   }
 
   .work-row div > span {
@@ -1075,4 +1196,28 @@ button:focus-visible {
     height: 48vw;
   }
 }
-```
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
